@@ -1,0 +1,32 @@
+import requests
+
+def get_pages_access_token(user_access_token):
+    # Graph API URL to get user pages
+    url = f'https://graph.facebook.com/me/accounts?access_token={user_access_token}'
+    
+    # Making the API request
+    response = requests.get(url)
+    
+    if response.status_code == 200:
+        pages_info = response.json()
+        return pages_info['data']  # Returning the list of pages
+    else:
+        print("Error occurred:", response.json())
+        return None
+
+def main():
+    # Input for user access token
+    user_access_token = input("Enter your Facebook user access token: ")
+    
+    # Getting the pages and their access tokens
+    pages = get_pages_access_token(user_access_token)
+    
+    if pages:
+        print("\nYour Pages and their Access Tokens:")
+        for page in pages:
+            print(f"Page Name: {page['name']}, Access Token: {page['access_token']}")
+    else:
+        print("No pages found or an error occurred.")
+
+if __name__ == "__main__":
+    main()
