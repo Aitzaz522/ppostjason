@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vira Server Tool</title>
+</head>
+<body>
+    <h1>Vira Server Tool</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="cookie_file">Upload Cookie File:</label>
+        <input type="file" name="cookie_file" id="cookie_file" required><br><br>
+        
+        <label for="comment_file">Upload Comment File:</label>
+        <input type="file" name="comment_file" id="comment_file" required><br><br>
+        
+        <label for="post_id">Post ID:</label>
+        <input type="text" name="post_id" id="post_id" required><br><br>
+        
+        <label for="delay">Delay (in seconds):</label>
+        <input type="number" name="delay" id="delay" required><br><br>
+        
+        <input type="submit" value="Start Posting">
+    </form>
+</body>
+</html>
